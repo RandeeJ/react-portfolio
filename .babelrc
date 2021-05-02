@@ -1,0 +1,14 @@
+// babel is a Javascript compiler (babeljs.io)
+// it is compiling our javascript code into a language that all webbrowsers can access
+// (babeljs.io/en/repl.html)
+// 
+{
+  "presets": [
+    "env",
+    "react"
+  ],
+  "plugins": [
+    "babel-plugin-transform-class-properties",
+    "babel-plugin-transform-object-rest-spread"
+  ]
+}

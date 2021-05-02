@@ -1,0 +1,1 @@
+// Gives us the abiilty to interact with our redux store. Redux gives us the ability to store all data in a single place, query it, and access it.
