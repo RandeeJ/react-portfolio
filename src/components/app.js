@@ -13,6 +13,7 @@ import Home from "./pages/home"
 import About from "./pages/about"
 import Contact from "./pages/contact"
 import Blog from "./pages/blog"
+import PortfolioDetail from "./portfolio/portfolio-detail"
 
 
 export default class App extends Component {
@@ -31,6 +32,7 @@ export default class App extends Component {
             <Route exact path="/about-me" component={About} />
             <Route exact path="/contact-me" component={Contact} />
             <Route exact path="/blog" component={Blog} />
+            <Route exact path="/portfolio/:slug" component={PortfolioDetail} />
           </Switch>
           </div>
         </Router>
