@@ -1,7 +1,7 @@
 import React, {Component} from "react";
+import axios from "axios";
 
 import PortfolioItem from "./portfolio-item";
-
 
 export default class PortfolioContainer extends Component {
     constructor() {
@@ -11,16 +11,13 @@ export default class PortfolioContainer extends Component {
 this.state = {
     pageTitle: "Welcome to My Portfolio",
     isLoading: false, 
-    data: [
-        {title: "Quip", category: "eCommerce", slug: "quip"}, 
-        {title: "Eventbrite", category: "Scheduling", slug: "eventbrite"}, 
-        {title: "Ministry Safe", category: "Enterprise", slug: "ministry-safe"}, 
-        {title: "SwingAway", category: "eCommerce", slug: "swingaway"}]
+    data: []
 }   
 // this.handlePageTitleUpdate = this.handlePageTitleUpdate.bind(this);
 // we are letting the program know that we want to be able to use the this function
 
 this.handleFilter = this.handleFilter.bind(this);
+
 // must do this for each custom filter for events
 }
 
@@ -29,12 +26,31 @@ handleFilter(filter) {
         data: this.state.data.filter(item => {
             return item.category === filter;
         })
-    })
+    });
 }
+
+getPortfolioItems() {
+    axios.get("https://randeejohnson.devcamp.space/portfolio/portfolio_items")
+  .then(response => {
+    // handle success
+    this.setState({
+        data: response.data.portfolio_items
+    })
+  })
+  .catch(error => {
+    // handle error
+    console.log(error);
+  })
+  // NEED TO FIGURE THIS OUT
+  .then( () => {
+    // always executed
+  });
+  }
+
 
     portfolioItems() {       
         return this.state.data.map(item =>  {
-            return <PortfolioItem title={item.title} url={"google.com"} slug={item.slug}/>; // <-- jsx
+            return <PortfolioItem key={item.id}title={item.name} url={item.url} slug={item.id}/>; // <-- jsx
         });
     }
 
@@ -45,12 +61,18 @@ handleFilter(filter) {
 //     })
 // }
 
+componentDidMount() {
+    this.getPortfolioItems();
+}
     // State
     // Lifecycle Hooks
     render() {
         if (this.state.isLoading){
             return <div>Loading...</div>
         }
+
+
+
         return (
             <div>
                 <h2> {this.state.pageTitle}</h2>

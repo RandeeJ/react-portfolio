@@ -1,6 +1,6 @@
 // components make up the application. We put together all of these components and thats what gives us the full application. Each component has its own role that can be shared across the entire application.
 import React, { Component } from 'react';
-import moment from "moment"
+import moment from "moment";
 import { 
   BrowserRouter as Router,
   Switch,
@@ -14,9 +14,11 @@ import About from "./pages/about"
 import Contact from "./pages/contact"
 import Blog from "./pages/blog"
 import PortfolioDetail from "./portfolio/portfolio-detail"
+import NoMatch from "./pages/no-match"
 
 
 export default class App extends Component {
+  
   render() {
     return (
       <div className='app'>
@@ -28,11 +30,16 @@ export default class App extends Component {
           <NavigationContainer />
 
           <Switch>
+            {/* routes come in order of which site will check */}
             <Route exact path="/" component={Home} />
             <Route exact path="/about-me" component={About} />
             <Route exact path="/contact-me" component={Contact} />
             <Route exact path="/blog" component={Blog} />
-            <Route exact path="/portfolio/:slug" component={PortfolioDetail} />
+            <Route
+            exact
+            path="/portfolio/:slug"
+            component={PortfolioDetail} />
+            <Route component={NoMatch} />
           </Switch>
           </div>
         </Router>
