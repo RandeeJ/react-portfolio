@@ -50,7 +50,7 @@ getPortfolioItems() {
 
     portfolioItems() {       
         return this.state.data.map(item =>  {
-            console.log("Portfolio item", item);
+            debugger; // <-- browser will see this and stop execution. will allow you to ask questions of data. gives great visibilty to see what we have access to. can run scripts and perform tasks from within the browser. essentially freezes the process and allows abiilty to run functions and process equations. But does not give access to components or state!
             return <PortfolioItem 
             key={item.id}
             title={item.name}
