@@ -50,7 +50,12 @@ getPortfolioItems() {
 
     portfolioItems() {       
         return this.state.data.map(item =>  {
-            return <PortfolioItem key={item.id}title={item.name} url={item.url} slug={item.id}/>; // <-- jsx
+            console.log("Portfolio item", item);
+            return <PortfolioItem 
+            key={item.id}
+            title={item.name}
+            url={item.url}
+            slug={item.id}/>;
         });
     }
 
