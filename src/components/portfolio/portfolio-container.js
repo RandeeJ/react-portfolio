@@ -48,7 +48,14 @@ getPortfolioItems() {
   }
 
 
-    portfolioItems() {       
+    portfolioItems() {  
+            //  Data that we'll need:
+            //  - Background Image : thumb_image_url
+            //  - Logo : logo_url
+            //  - Description : description
+            //  - ID (what we will use for the slug) : id
+            //  In console, call Object.keys(item) to get item keys
+            // ["id", "name", "description", "url", "category", "position", "thumb_image_url", "banner_image_url", "logo_url", "column_names_merged_with_images"]
         return this.state.data.map(item =>  {
             // debugger; // <-- browser will see this and stop execution. will allow you to ask questions of data. gives great visibilty to see what we have access to. can run scripts and perform tasks from within the browser. essentially freezes the process and allows abiilty to run functions and process equations. But does not give access to components or state!
             return <PortfolioItem 
@@ -63,7 +70,7 @@ getPortfolioItems() {
 // handlePageTitleUpdate() {
 //     this.setState({
 //         pageTitle: "Something Else"
-//     })
+//     })ç
 // }
 
 componentDidMount() {
