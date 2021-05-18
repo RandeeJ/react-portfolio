@@ -90,7 +90,8 @@ componentDidMount() {
                 <button onClick = {() => this.handleFilter("Enterprise")}>Enterprise
                 </button>
 
-                {this.portfolioItems()}
+<div className="portfolio-items-wrapper">
+                {this.portfolioItems()}</div>
 
 
                 {/* <button onClick={this.handlePageTitleUpdate}> Change Title </button> */}

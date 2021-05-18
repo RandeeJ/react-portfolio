@@ -3,3 +3,7 @@ body {
     font-family: 'Sunflower', sans-serif;}
     // import font embed code into index.html (in static), above title
 
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+}
