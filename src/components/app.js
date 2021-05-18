@@ -1,6 +1,5 @@
 // components make up the application. We put together all of these components and thats what gives us the full application. Each component has its own role that can be shared across the entire application.
 import React, { Component } from 'react';
-import moment from "moment";
 import { 
   BrowserRouter as Router,
   Switch,
@@ -23,8 +22,7 @@ export default class App extends Component {
     return (
       <div className='app'>
 
-      <h1>Randee Johnson's React Portfolio</h1>
-        <div>{moment().format('MMMM Do YYYY, h:mm:ss a')}</div>
+      
         <Router>
           <div>
           <NavigationContainer />

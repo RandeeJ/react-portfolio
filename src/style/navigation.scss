@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     padding: 30px;
-}
+
 
 .left-side {
     display:flex;
@@ -17,7 +17,6 @@
     text-transform: uppercase;
     font-size: 0.9rem;
 
-    
 
     // PAY ATTENTION TO THE NESTING GOING ON HERE
 a {
@@ -25,20 +24,18 @@ a {
     text-decoration: none;
      &:hover {
         color: black;
-        // border-bottom: 1px solid black;
-
-
      }
     }
 
 &:hover {
-    color: black;
+    // color: black;
     border-bottom: 1px solid black;
     }
 
 .nav-link-active{
     color: black;
     border-bottom: 1px solid black;
-
-        
-}};
+     
+}
+}
+};
