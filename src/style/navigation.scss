@@ -16,10 +16,14 @@
 
     // PAY ATTENTION TO THE NESTING GOING ON HERE
 a {
-    color: black;
+    color: $gray;
     text-decoration: none;
+     &:hover {
+        color: black;
+    }
 }
 
 &:hover {
     border-bottom: 1px solid black;
-}};
+    }
+};
