@@ -21,10 +21,15 @@ style={{
     backgroundImage: "url(" + thumb_image_url + ")"
 }}
 />
-
+    <div className="img-text-wrapper">
+        <div className="logo-wrapper">
             <img src={logo_url} />
-            <div> {description} </div>
-            <Link to={`/portfolio/${id}`}> Link </Link>
+        </div>
+
+        <div className="subtitle">
+            {description}
+        </div>
+    </div>
         </div> 
     )
 }
