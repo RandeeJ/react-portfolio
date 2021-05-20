@@ -1,4 +1,9 @@
+// ORDER HERE IS CRITICAL
+// we want other files to be able to access variables and mixins, so that is why they are at the top.
+
 @import "./variables.scss";
+@import "./mixins.scss";
 @import "./base.scss";
+@import "./buttons.scss";
 @import "./navigation.scss";
 @import "./portfolio.scss";

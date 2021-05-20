@@ -80,22 +80,19 @@ componentDidMount() {
 
 
         return (
-            <div>
-                <h2> {this.state.pageTitle}</h2>
-                
-                <button onClick = {() => this.handleFilter("eCommerce")}>eCommerce
+            <div className="portfolio-items-wrapper">
+                <button className="btn" onClick = {() => this.handleFilter("eCommerce")}>eCommerce
                 </button>
-                <button onClick = {() => this.handleFilter("Scheduling")}>Scheduling
+                <button className="btn" onClick = {() => this.handleFilter("Scheduling")}>Scheduling
                 </button>
-                <button onClick = {() => this.handleFilter("Enterprise")}>Enterprise
+                <button className="btn" onClick = {() => this.handleFilter("Enterprise")}>Enterprise
                 </button>
 
-<div className="portfolio-items-wrapper">
                 {this.portfolioItems()}</div>
 
 
-                {/* <button onClick={this.handlePageTitleUpdate}> Change Title </button> */}
-            </div>
+                /* <button onClick={this.handlePageTitleUpdate}> Change Title </button> */
+           
         )
     }
 }
