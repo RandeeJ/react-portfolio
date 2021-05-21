@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import loginImage from "../../../static/assets/images/auth/IMG_1752.jpg";
 // can import the image under any variable name
 
+import Login from "../auth/login"
+
 export default class Auth extends Component {
     render() {
         return (
@@ -16,8 +18,8 @@ export default class Auth extends Component {
                 />
                 
                 <div className="right-column">
-                    <h1>Login component goes here...</h1>
-                </div>
+                    <Login />
+                    </div>
 
             </div>
         );
