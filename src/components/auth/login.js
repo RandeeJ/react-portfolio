@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from "axios";
 
 export default class Login extends Component {
     constructor(props){
@@ -21,8 +22,21 @@ export default class Login extends Component {
         }
 
         handleSubmit(event) {
-            console.log("handle submit", this.state.email, this.state.password);
-            event.preventDefault();
+        axios.post("https://api.devcamp.space/sessions", 
+        {
+            client: {
+                email: this.state.email,
+                password: this.state.password
+            }
+        },
+        {withCredentials: true}
+        // when you post something, more than just the message and your personal information gets sent. it can send cookies from your system, how you created the thing being sent (ex. tweet --> repost?). server will run authorization process to check credentials.
+        ) .then(response => {
+            console.log("response", response);
+        })
+                    // since we are pushing something up - we will create a session. we are creating the ability to create a session on the server and then we will get a cookie from the server and store it directly into the browser. this will make sure that we have the ability to log in ... or nah.
+                    // will expect a url, and an object that contains the email and password, and the third is the optional additional credentials.
+        event.preventDefault();
             // "I do not want you to follow your default behavior"
         }
     
