@@ -12,10 +12,6 @@ export default class Login extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(event) {
-        
-    }
-
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
@@ -24,6 +20,14 @@ export default class Login extends Component {
             });
         }
 
+        handleSubmit(event) {
+            console.log("handle submit", this.state.email, this.state.password);
+            event.preventDefault();
+            // "I do not want you to follow your default behavior"
+        }
+    
+
+
     render() {
         return (
             <div>
@@ -31,7 +35,7 @@ export default class Login extends Component {
 
 
                 <form onSubmit={this.handleSubmit}> 
-                
+
                     <input 
                     type="email" 
                     // type is something specific to html
