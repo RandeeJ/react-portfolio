@@ -45,7 +45,7 @@ export default class NavigationComponent extends Component {
                 </div>
 
                 <div className="right-side">
-                    RANEE JOHNSON
+                    RANDEE JOHNSON
                 </div>
                 
             </div>

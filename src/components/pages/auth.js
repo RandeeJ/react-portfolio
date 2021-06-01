@@ -1,27 +1,42 @@
-import React, { Component } from 'react';
-import loginImage from "../../../static/assets/images/auth/IMG_1752.jpg";
-// can import the image under any variable name
-
-import Login from "../auth/login"
+import React, { Component } from "react";
+import Login from "../auth/login";
+import loginImg from "../../../static/assets/images/auth/IMG_1752.jpg";
 
 export default class Auth extends Component {
-    render() {
-        return (
-            <div className="auth-page-wrapper">
-                <div 
-                    className="left-column" 
-                 // style expects objects and javasript - so use double {{}}
+  constructor(props) {
+    super(props);
 
-                    style={{
-                        backgroundImage: `url(${loginImage})`
-                    }}
-                />
-                
-                <div className="right-column">
-                    <Login />
-                    </div>
+    this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
+    this.handleUnsuccessfulAuth = this.handleUnsuccessfulAuth.bind(this);
+  }
 
-            </div>
-        );
-    }
+  handleSuccessfulAuth() {
+    this.props.handleSuccessfulLogin();
+    console.log("workingfine")
+    this.props.history.push("/");
+  }
+
+  handleUnsuccessfulAuth() {
+    this.props.handleUnsuccessfulLogin();
+  }
+
+  render() {
+    return (
+      <div className="auth-page-wrapper">
+        <div
+          className="left-column"
+          style={{
+            backgroundImage: `url(${loginImg})`
+          }}
+        />
+
+        <div className="right-column">
+          <Login
+            handleSuccessfulAuth={this.handleSuccessfulAuth}
+            handleUnsuccessfulAuth={this.handleUnsuccessfulAuth}
+          />
+        </div>
+      </div>
+    );
+  }
 }

@@ -29,6 +29,11 @@ module.exports = webpackMerge(webpackCommon, {
     publicPath: '/'
 
   },
+  node: {
+    fs: 'empty',
+    net:'empty',
+    tls:'empty',
+  },
 
   module: {
 
