@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PortfolioSidebarList = (props) => {
+const PortfolioSidebarList = props => {
     const portfolioList = props.data.map(portfolioItem => {
         return (
             <div className="portfolio-item-thumb">

@@ -14,18 +14,27 @@ export default class PortfolioForm extends Component {
             banner_image: "",
             logo: ""
         }
-this.handleChange=this.handleChange.bind(this)
+this.handleChange=this.handleChange.bind(this);
+this.handleSubmit=this.handleSubmit.bind(this);
 
     }
 handleChange(event) {
-    console.log("handle change", event)
+    this.setState({
+        [event.target.name]: event.target.value
+    });
+}
+
+handleSubmit(event) {
+    console.log("event", event);
+    event.preventDefault();
+
 }
 
     render() {
         return (
             <div>
                 <h1>PortfolioForm</h1>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <div>
                         <input
                         type="text"
