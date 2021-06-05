@@ -1,0 +1,63 @@
+.portfolio-manager-wrapper{
+    background: $offwhite;
+
+
+.left-side {
+    
+    
+form {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    background: transparent;
+    display: grid;
+    // grid-template-rows: 1fr 1fr 1fr;
+    // justify-content: center;
+    // align-items: center;
+    
+
+
+.dataUpload{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    row-gap: 15px;
+    padding: 20px;
+    
+
+.half-width {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+
+input{
+    border: none;
+    border-bottom: 2px solid $blue;
+    margin-right: 15px;
+    padding: 10px;
+}
+}
+
+.full-width {
+    input {
+    border: 2px solid $blue;
+   padding: 10px;
+    }
+}
+
+.imageUpload{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+
+input{
+    background-color: white;
+    color: $blue;
+    padding: 10px;
+    width: 30px;
+}
+}
+}
+    }
+}}
