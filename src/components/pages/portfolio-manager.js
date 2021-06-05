@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 
 import PortfolioSidebarList from "../portfolio/portfolio-sidebar-list"
+import PortfolioForm from '../portfolio/portfolio-form';
 
 export default class PortfolioManager extends Component {
     constructor(){
@@ -9,8 +10,20 @@ export default class PortfolioManager extends Component {
 
         this.state = {
             portfolioItems: []
-        }
+        };
+
+    this.handleSuccessfulFormSubmission=this.handleSuccessfulFormSubmission.bind(this);
+    this.handleFormSubmissionError=this.handleFormSubmissionError.bind(this);
     }
+
+handleSuccessfulFormSubmission(portfolioItem) {
+        // update the portfolio items state
+        // add the portfolio item to the list
+    }
+
+handleFormSubmissionError(error) {
+    console.log("hanfleFormSubmissionError error", error)
+}
 
     getPortfolioItems(){
         axios.get("https://randeejohnson.devcamp.space/portfolio/portfolio_items", {withCredentials: true
@@ -32,46 +45,9 @@ componentDidMount() {
         return (
             <div className="portfolio-manager-wrapper">
                 <div className="left-side">
-                <form>
-
-
-
-                    <div className="dataUpload">
-
-
-                        <div className="half-width row1">
-                    <input type="text" placeholder="Portfolio Item Name" />
-                    <input type="text" placeholder="URL"  />
-                    </div>
-
-                    <div className="half-width row2">
-                    <input type="text" placeholder="Position" />
-                    <input type="" />
-                    </div>
-
-
-
-                    <div className="full-width row3">
-                    <input type="text" placeholder="Description" />
-                    </div>
-
-                    </div>
-
-
-
-
-                    <div className="imageUpload">
-                        <input/>
-                        <input/>
-                        <input/>
-                    </div>
-
-
-                    <input type="submit" placeholder="Save"/>
-
-
-                </form>
-
+                    <PortfolioForm 
+                    handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}
+                    handleFormSubmissionError={this.handleFormSubmissionError}/>
 
                 </div>
 
