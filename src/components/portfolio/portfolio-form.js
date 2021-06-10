@@ -99,7 +99,7 @@ axios.post("https://randeejohnson.devcamp.space/portfolio/portfolio_items", this
                     </div>
 
                     <div>
-                    <input
+                    <textarea
                         type="text"
                         name="description"
                         placeholder="Description"
