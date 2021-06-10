@@ -86,13 +86,16 @@ axios.post("https://randeejohnson.devcamp.space/portfolio/portfolio_items", this
                         onChange={this.handleChange}
                         />
 
-                    <input
-                        type="text"
+                    <select
                         name="category"
-                        placeholder="Category"
                         value={this.state.category}
                         onChange={this.handleChange}
-                        />
+                        >
+                            <option value="eCommerce">eCommerce</option>
+                            <option value="Scheduling">Scheduling</option>
+                            <option value="Enterprise">Enterprise</option>
+
+                        </select>
                     </div>
 
                     <div>
