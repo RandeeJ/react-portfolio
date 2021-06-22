@@ -131,9 +131,8 @@ axios.post("https://randeejohnson.devcamp.space/portfolio/portfolio_items", this
 
     render() {
         return (
-            <div>
-                <h1>PortfolioForm</h1>
-                <form onSubmit={this.handleSubmit}>
+           
+                <form onSubmit={this.handleSubmit} className="portfolio-form-wrapper">
                     <div>
                         <input
                         type="text"
@@ -211,7 +210,6 @@ axios.post("https://randeejohnson.devcamp.space/portfolio/portfolio_items", this
                         </button>
                     </div>
                 </form>
-            </div>
         );
     }
 }
