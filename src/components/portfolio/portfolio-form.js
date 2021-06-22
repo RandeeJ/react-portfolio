@@ -23,6 +23,10 @@ this.handleSubmit=this.handleSubmit.bind(this);
 this.componentConfig=this.componentConfig.bind(this);
 this.djsConfig=this.djsConfig.bind(this);
 this.handleThumbDrop=this.handleThumbDrop.bind(this);
+this.handleBannerDrop=this.handleBannerDrop.bind(this);
+this.handleLogoDrop=this.handleLogoDrop.bind(this);
+
+
     }
 
 handleThumbDrop() {
@@ -31,7 +35,21 @@ handleThumbDrop() {
     }
 }
 
-    componentConfig() {
+handleBannerDrop() {
+    return{
+        addedfile: file => this.setState({banner_image: file})
+    }
+}
+
+ 
+handleLogoDrop() {
+    return{
+        addedfile: file => this.setState({logo: file})
+    }
+}
+
+
+componentConfig() {
         return {
             iconFiletypes: [".jpg", ".png"],
             showFiletypeIcon: true,
@@ -58,6 +76,14 @@ buildForm() {
     if (this.state.thumb_image){
     formData.append("portfolio_item[thumb_image]", this.state.thumb_image);
     }
+
+    if (this.state.banner_image){
+        formData.append("portfolio_item[banner_image]", this.state.banner_image);
+        }
+
+    if (this.state.logo){
+            formData.append("portfolio_item[logo]", this.state.logo);
+            }
 
 return formData;
 
@@ -140,8 +166,16 @@ axios.post("https://randeejohnson.devcamp.space/portfolio/portfolio_items", this
                     'image-uploaders'>
                         <DropzoneComponent config={this.componentConfig()}
                         djsConfig={this.djsConfig()}
-                        eventHandlers={this.handleThumbDrop()}>
-                        </DropzoneComponent>
+                        eventHandlers={this.handleThumbDrop()}/>
+
+                        <DropzoneComponent config={this.componentConfig()}
+                        djsConfig={this.djsConfig()}
+                        eventHandlers={this.handleBannerDrop()}/>
+
+
+                        <DropzoneComponent config={this.componentConfig()}
+                        djsConfig={this.djsConfig()}
+                        eventHandlers={this.handleLogoDrop()}/>    
                     </div>
 
                     <div>
@@ -154,44 +188,3 @@ axios.post("https://randeejohnson.devcamp.space/portfolio/portfolio_items", this
         );
     }
 }
-
-
-// <form>
-
-
-
-// <div className="dataUpload">
-
-
-//     <div className="half-width row1">
-// <input type="text" placeholder="Portfolio Item Name" />
-// <input type="text" placeholder="URL"  />
-// </div>
-
-// <div className="half-width row2">
-// <input type="text" placeholder="Position" />
-// <input type="" />
-// </div>
-
-
-
-// <div className="full-width row3">
-// <input type="text" placeholder="Description" />
-// </div>
-
-// </div>
-
-
-
-
-// <div className="imageUpload">
-//     <input/>
-//     <input/>
-//     <input/>
-// </div>
-
-
-// <input type="submit" placeholder="Save"/>
-
-
-// </form>
