@@ -164,6 +164,7 @@ axios.post("https://randeejohnson.devcamp.space/portfolio/portfolio_items", this
                         name="category"
                         value={this.state.category}
                         onChange={this.handleChange}
+                        className="select-element"
                         >
                             <option value="eCommerce">eCommerce</option>
                             <option value="Scheduling">Scheduling</option>
