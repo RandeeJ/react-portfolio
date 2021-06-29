@@ -33,6 +33,9 @@ catch(error => {
 handleSuccessfulFormSubmission(portfolioItem) {
         // update the portfolio items state
         // add the portfolio item to the list
+        this.setState({
+            portfolioItems: [portfolioItem].concat(this.state.portfolioItems)
+          });
     }
 
 handleFormSubmissionError(error) {
