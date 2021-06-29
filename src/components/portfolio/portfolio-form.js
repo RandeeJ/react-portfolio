@@ -133,7 +133,7 @@ axios.post("https://randeejohnson.devcamp.space/portfolio/portfolio_items", this
         return (
            
                 <form onSubmit={this.handleSubmit} className="portfolio-form-wrapper">
-                    <div>
+                    <div className="two-column">
                         <input
                         type="text"
                         name="name"
@@ -151,7 +151,7 @@ axios.post("https://randeejohnson.devcamp.space/portfolio/portfolio_items", this
                         />
                     </div>
 
-                    <div>
+                    <div className="two-column">
                     <input
                         type="text"
                         name="position"
@@ -173,7 +173,7 @@ axios.post("https://randeejohnson.devcamp.space/portfolio/portfolio_items", this
                         </select>
                     </div>
 
-                    <div>
+                    <div className="one-column">
                     <textarea
                         type="text"
                         name="description"
@@ -184,7 +184,7 @@ axios.post("https://randeejohnson.devcamp.space/portfolio/portfolio_items", this
                     </div>
 
                     <div className=
-                    'image-uploaders'>
+                    'image-uploaders three-column'>
                         <DropzoneComponent 
                         ref = {this.thumbRef}
                         config={this.componentConfig()}
