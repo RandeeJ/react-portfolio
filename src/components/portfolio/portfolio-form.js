@@ -184,29 +184,35 @@ axios.post("https://randeejohnson.devcamp.space/portfolio/portfolio_items", this
                     </div>
 
                     <div className=
-                    'image-uploaders three-column'>
+                    'image-uploaders '>
                         <DropzoneComponent 
                         ref = {this.thumbRef}
                         config={this.componentConfig()}
                         djsConfig={this.djsConfig()}
-                        eventHandlers={this.handleThumbDrop()}/>
+                        eventHandlers={this.handleThumbDrop()}>
+                            <div className="dz-message"> Thumbnail</div>
+                            </DropzoneComponent>
 
                         <DropzoneComponent
                         ref = {this.bannerRef}
                         config={this.componentConfig()}
                         djsConfig={this.djsConfig()}
-                        eventHandlers={this.handleBannerDrop()}/>
+                        eventHandlers={this.handleBannerDrop()}>
+                            <div className="dz-message"> Banner</div>
+                            </DropzoneComponent>
 
 
                         <DropzoneComponent
                         ref = {this.logoRef}
                         config={this.componentConfig()}
                         djsConfig={this.djsConfig()}
-                        eventHandlers={this.handleLogoDrop()}/>    
+                        eventHandlers={this.handleLogoDrop()}>
+                            <div className="dz-message"> Logo</div>
+                            </DropzoneComponent>    
                     </div>
 
                     <div>
-                        <button type="submit">
+                        <button className="btn" type="submit">
                             Save
                         </button>
                     </div>
