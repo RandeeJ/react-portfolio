@@ -54,7 +54,7 @@ componentDidUpdate() {
             logo_url
         } = this.props.portfolioToEdit;
 
-        console.log('This is a test', id, name, category);
+        // console.log('This is a test', id, name, category);
 
         this.props.clearPortfolioToEdit();
 
@@ -67,7 +67,10 @@ componentDidUpdate() {
             url: url || "",
             editMode: true,
             apiUrl: `https://randeejohnson.devcamp.space/portfolio/portfolio_items/${id}`,
-            apiAction: "patch"
+            apiAction: "patch",
+            thumb_image: thumb_image_url || "",
+            banner_image: banner_image_url || "",
+            logo: logo_url || ""
         });
     }
 }
@@ -237,6 +240,14 @@ axios({
 
                     <div className=
                     'image-uploaders '>
+
+                        {/* BASE CASE FOR TERNARY */}
+                        {/* { true ? "do if true" : "do if false"} */}
+
+                        {this.state.thumb_image && this.state.editMode ?  (
+                        <img src={this.state.thumb_image} />
+                        ):
+(
                         <DropzoneComponent 
                         ref = {this.thumbRef}
                         config={this.componentConfig()}
@@ -244,6 +255,7 @@ axios({
                         eventHandlers={this.handleThumbDrop()}>
                             <div className="dz-message"> Thumbnail</div>
                             </DropzoneComponent>
+    )}
 
                         <DropzoneComponent
                         ref = {this.bannerRef}

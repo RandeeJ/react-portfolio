@@ -31,7 +31,7 @@ clearPortfolioToEdit() {
 
 
 handleEditClick(portfolioItem) {
-    console.log('This is a test.', portfolioItem);
+    // console.log('This is a test.', portfolioItem);
     this.setState({
         portfolioToEdit: portfolioItem
     });
