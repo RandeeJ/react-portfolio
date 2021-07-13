@@ -13,7 +13,8 @@ export default class PortfolioManager extends Component {
             portfolioToEdit: {}
         };
 
-    this.handleSuccessfulFormSubmission=this.handleSuccessfulFormSubmission.bind(this);
+    this.handleNewFormSubmission=this.handleNewFormSubmission.bind(this);
+    this.handleEditFormSubmission=this.handleEditFormSubmission.bind(this);
     this.handleFormSubmissionError=this.handleFormSubmissionError.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.handleEditClick = this.handleEditClick.bind(this);
@@ -50,7 +51,11 @@ catch(error => {
     });
 }
 
-handleSuccessfulFormSubmission(portfolioItem) {
+handleEditFormSubmission() {
+    this.getPortfolioItems();
+}
+
+handleNewFormSubmission(portfolioItem) {
         // update the portfolio items state
         // add the portfolio item to the list
         this.setState({
@@ -59,11 +64,11 @@ handleSuccessfulFormSubmission(portfolioItem) {
     }
 
 handleFormSubmissionError(error) {
-    console.log("hanfleFormSubmissionError error", error)
+    console.log("handleFormSubmissionError error", error)
 }
 
     getPortfolioItems(){
-        axios.get("https://randeejohnson.devcamp.space/portfolio/portfolio_items", {withCredentials: true
+        axios.get("https://randeejohnson.devcamp.space/portfolio/portfolio_items?order_by=created_at&direction=desc", {withCredentials: true
     }).then(response => {
 this.setState({
     portfolioItems:
@@ -83,7 +88,8 @@ componentDidMount() {
             <div className="portfolio-manager-wrapper">
                 <div className="left-side">
                     <PortfolioForm 
-                    handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}
+                    handleNewFormSubmission={this.handleNewFormSubmission}
+                    handleEditFormSubmission={this.handleEditFormSubmission}
                     handleFormSubmissionError={this.handleFormSubmissionError}
                     clearPortfolioToEdit={this.clearPortfolioToEdit}
                     portfolioToEdit={this.state.portfolioToEdit}/>

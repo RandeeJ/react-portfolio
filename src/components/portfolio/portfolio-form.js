@@ -16,7 +16,10 @@ export default class PortfolioForm extends Component {
             url: "",
             thumb_image: "",
             banner_image: "",
-            logo: ""
+            logo: "",
+            editMode: false,
+            apiUrl: "https://randeejohnson.devcamp.space/portfolio/portfolio_items",
+            apiAction: "post"
         }
 
 
@@ -55,13 +58,16 @@ componentDidUpdate() {
 
         this.props.clearPortfolioToEdit();
 
-        this.setState = ({
+        this.setState({
             id: id,
             name: name || "",
             description: description || "",
             category: category || "eCommerce",
             position: position || "",
-            url: url || ""
+            url: url || "",
+            editMode: true,
+            apiUrl: `https://randeejohnson.devcamp.space/portfolio/portfolio_items/${id}`,
+            apiAction: "patch"
         });
     }
 }
@@ -138,8 +144,19 @@ handleSubmit(event) {
     // https://randeejohnson.devcamp.space/portfolio/portfolio_items
 
     // axios endpoint, form data, and credentials - server has to recognize who this is coming from
-axios.post("https://randeejohnson.devcamp.space/portfolio/portfolio_items", this.buildForm(), {withCredentials: true}).then(response => {
-    this.props.handleSuccessfulFormSubmission(response.data.portfolio_item)
+axios({
+    method: this.state.apiAction,
+    url: this.state.apiUrl,
+    data: this.buildForm(),
+    withCredentials: true
+})
+.then(response => {
+    if (this.state.editMode) {
+        this.props.handleEditFormSubmission();
+    }
+    else {
+    this.props.handleNewFormSubmission(response.data.portfolio_item)
+    }
 
     this.setState({
         name: "",
@@ -149,7 +166,10 @@ axios.post("https://randeejohnson.devcamp.space/portfolio/portfolio_items", this
         url: "",
         thumb_image: "",
         banner_image: "",
-        logo: ""
+        logo: "",
+        editMode: false,
+        apiUrl: "https://randeejohnson.devcamp.space/portfolio/portfolio_items",
+        apiAction: "post"
     });
 
     [this.thumbRef, this.bannerRef, this.logoRef].forEach(ref => { ref.current.dropzone.removeAllFiles();
