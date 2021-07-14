@@ -245,7 +245,9 @@ axios({
                         {/* { true ? "do if true" : "do if false"} */}
 
                         {this.state.thumb_image && this.state.editMode ?  (
+                            <div className="portfolio-manager-image-wrapper">
                         <img src={this.state.thumb_image} />
+                        </div>
                         ):
 (
                         <DropzoneComponent 
@@ -257,6 +259,16 @@ axios({
                             </DropzoneComponent>
     )}
 
+
+{this.state.banner_image && this.state.editMode ?  (
+                            <div className="portfolio-manager-image-wrapper">
+                        <img src={this.state.banner_image} />
+                        </div>
+                        ): (
+
+
+
+
                         <DropzoneComponent
                         ref = {this.bannerRef}
                         config={this.componentConfig()}
@@ -266,13 +278,24 @@ axios({
                             </DropzoneComponent>
 
 
+
+                        )}
+
+{this.state.logo && this.state.editMode ?  (
+                            <div className="portfolio-manager-image-wrapper">
+                        <img src={this.state.logo} />
+                        </div>
+                        ):(
+
                         <DropzoneComponent
                         ref = {this.logoRef}
                         config={this.componentConfig()}
                         djsConfig={this.djsConfig()}
                         eventHandlers={this.handleLogoDrop()}>
                             <div className="dz-message"> Logo</div>
-                            </DropzoneComponent>    
+                            </DropzoneComponent>  
+                            
+        )}
                     </div>
 
                     <div>
