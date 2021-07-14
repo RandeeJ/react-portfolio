@@ -20,6 +20,18 @@
                 object-fit: cover;
                 border-radius: 5px;
             }
+
+            .image-removal-link {
+                display: flex;
+                justify-content: center;
+                a {
+                    font-size: 15px;
+                    font-weight: 900;
+                    color: $warning;
+                    cursor: pointer;
+
+                }
+            }
         }
     }
 }

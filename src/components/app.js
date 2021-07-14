@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrash, 
   faSignOutAlt, 
-  faEdit 
+  faEdit,
+  faMinusCircle
 } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -20,7 +21,7 @@ import PortfolioDetail from "./portfolio/portfolio-detail";
 import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
 
-library.add(faTrash, faSignOutAlt, faEdit);
+library.add(faTrash, faSignOutAlt, faEdit, faMinusCircle);
 
 export default class App extends Component {
   constructor(props) {
