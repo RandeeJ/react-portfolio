@@ -65,7 +65,7 @@ export default class App extends Component {
         response => {
         const loggedIn = response.data.logged_in;
         const loggedInStatus = this.state.loggedInStatus;
-        console.log("See meee", loggedIn, response);
+        // console.log("See meee", loggedIn, response);
 
 
         // If loggedIn and status LOGGED_IN => return data
