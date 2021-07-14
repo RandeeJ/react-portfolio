@@ -42,7 +42,16 @@ this.logoRef = React.createRef();
     }
 
 deleteImage(imageType) {
-    console.log("delete image", imageType);
+axios.delete(`https://api.devcamp.space/portfolio/delete-portfolio-image/${this.state.id}?image_type=${imageType}`,
+ {withCredentials: true})
+ .then(response => {
+    this.setState({
+        [`${imageType}_url`]: ""
+    }) 
+})
+ .catch(error => {
+     console.log("deleteImage error", error)
+ })
 }
 
 componentDidUpdate() {
@@ -249,7 +258,7 @@ axios({
                         {/* BASE CASE FOR TERNARY */}
                         {/* { true ? "do if true" : "do if false"} */}
 
-                        {this.state.thumb_image_url && this.state.editMode ?  (
+                    {this.state.thumb_image_url && this.state.editMode ?  (
                             <div className="portfolio-manager-image-wrapper">
                         <img src={this.state.thumb_image_url} />
 
@@ -271,7 +280,7 @@ axios({
     )}
 
 
-{this.state.banner_image_url && this.state.editMode ?  (
+                    {this.state.banner_image_url && this.state.editMode ?  (
                             <div className="portfolio-manager-image-wrapper">
                         <img src={this.state.banner_image_url} />
                         <div className="image-removal-link">
@@ -297,7 +306,7 @@ axios({
 
                         )}
 
-{this.state.logo_url && this.state.editMode ?  (
+                    {this.state.logo_url && this.state.editMode ?  (
                             <div className="portfolio-manager-image-wrapper">
                         <img src={this.state.logo_url} />
                         <div className="image-removal-link">
