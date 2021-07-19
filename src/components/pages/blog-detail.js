@@ -8,12 +8,14 @@ export default class BlogDetail extends Component {
     this.state={
         currentId: this.props.match.params.slug,
         blogItem: {}
-    }
+        }
     }
 
     getBlogItem() {
         axios.get(`https://randeejohnson.devcamp.space/portfolio/portfolio_blogs/${this.state.currentId}`).then(response => {
-            console.log("response" , response)
+            this.setState({
+                blogItem: response.data.portfolio_blog
+            })
         }).catch(error => {
             console.log("getBlogItem error", error);
         })
@@ -24,11 +26,26 @@ export default class BlogDetail extends Component {
         this.getBlogItem();
     }
     render() {
+
+        const {
+            title,
+            content,
+            featured_image_url,
+            blog_status
+        } = this.state.blogItem;
+        // pulls out and automatically assigns these values
+
         return (
             <div>
                 <h1>
-                    Blog Detail Component
+                    {title}
                 </h1>
+
+                <img src = {featured_image_url} />
+
+                <div>
+                    {content}
+                </div>
             </div>
         );
     }
