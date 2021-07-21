@@ -20,9 +20,13 @@ class Blog extends Component{
 
 activateInfiniteScroll() {
     window.onscroll = () => {
-        console.log("onscroll")
+    if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+        console.log("get more posts");
+         }
+        };
     }
-}
+        
+
 
         getBlogItems() {
             axios.get("https://randeejohnson.devcamp.space/portfolio/portfolio_blogs", {withCredetials: true
