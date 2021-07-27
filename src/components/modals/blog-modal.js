@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import ReactModal from "react-modal";
 
+import BlogForm from "../modals/blog-form"
 
 ReactModal.setAppElement(".app-wrapper");
 
@@ -32,9 +33,9 @@ export default class BlogModal extends Component {
 
                 // onRequestClose allows for any clicks outside of the window or using the escape key to "exit" the modal/run the requested function
             }} isOpen={this.props.modalIsOpen}>
-                <h1>
-                    I'm in a modal!
-                </h1>
+                
+                    <BlogForm/>
+                
             </ReactModal>
         )
     }
