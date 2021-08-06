@@ -53,7 +53,8 @@ handleChange(event) {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className = "blog-form-wrapper">
+                <div className="two-column">
                 <input 
                 type="text"
                 onChange={this.handleChange}
@@ -63,14 +64,14 @@ handleChange(event) {
                 />
 
                 <input 
-                type="text"
+                type="text" 
                 onChange={this.handleChange}
                 name= "blog_status"
                 placeholder= "Blog status"
                 value={this.state.blog_status}
                 />  
-
-                <button> Save </button>
+                </div>
+                <button className = "btn"> Save </button>
             </form>
         );
     }
