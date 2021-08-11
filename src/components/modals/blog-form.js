@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 
 import RichTextEditor from "../forms/rich-text-editor";
+import { faWizardsOfTheCoast } from '@fortawesome/free-brands-svg-icons';
 
 export default class BlogForm extends Component {
     constructor(props){
@@ -9,18 +10,27 @@ export default class BlogForm extends Component {
 
         this.state={
             title: "",
-            blog_status: ""
+            blog_status: "",
+            content: ""
         }
 
         this.handleChange=this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleRichTextEditorChange=this.handleRichTextEditorChange.bind(this);
     }
+
+
+handleRichTextEditorChange(content) {
+    this.setState({ content })
+    // same thing as `content: content` where `key: value`
+}
 
     buildForm() {
         let formData = new FormData();
 
         formData.append("portfolio_blog[title]", this.state.title);
         formData.append("portfolio_blog[blog_status]", this.state.blog_status);
+        formData.append("portfolio_blog[content]", this.state.content)
 
         return formData;
 
@@ -76,7 +86,7 @@ handleChange(event) {
 
 
                 <div className="one-column">
-                    <RichTextEditor />
+                    <RichTextEditor handleRichTextEditorChange={this.handleRichTextEditorChange}/>
                 </div>
 
 
