@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import ReactHtmlParser from "react-html-parser";
 import BlogFeaturedImage from '../blog/blog-featured-image';
+import BlogForm from '../blog/blog-form';
 
 export default class BlogDetail extends Component {
     constructor(props){
@@ -9,8 +10,17 @@ export default class BlogDetail extends Component {
     
     this.state={
         currentId: this.props.match.params.slug,
-        blogItem: {}
+        blogItem: {},
+        editMode: false
         }
+
+        this.handleEditClick = this.handleEditClick.bind(this);
+    }
+
+
+    handleEditClick() {
+        console.log("Handle edit clicked")
+        this.setState({editMode: true})
     }
 
     getBlogItem() {
@@ -37,10 +47,14 @@ export default class BlogDetail extends Component {
         } = this.state.blogItem;
         // pulls out and automatically assigns these values
 
-        return (
-            <div className="blog-container">
-                <div className ="content-container">
-                    <h1>
+        const contentManager = () => {
+            if (this.state.editMode) {
+                return <BlogForm editMode={this.state.editMode} blog={this.state.blogItem}/>
+            }
+            else {
+                return (
+                    <div className ="content-container">
+                    <h1 onClick={this.handleEditClick}>
                         {title}
                     </h1>
                 
@@ -51,6 +65,13 @@ export default class BlogDetail extends Component {
                     {ReactHtmlParser(content)}
                 </div>
                 </div>
+                )
+            }
+        }
+
+        return (
+            <div className="blog-container">
+                {contentManager()}
             </div>
         );
     }
