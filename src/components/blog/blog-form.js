@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import { DropzoneComponent } from 'react-dropzone-component';
+import  DropzoneComponent  from 'react-dropzone-component';
 
 import RichTextEditor from "../forms/rich-text-editor";
 
@@ -147,6 +147,15 @@ handleChange(event) {
 
 
                 <div className="image-uploaders">
+
+                    {this.props.editMode && this.props.blog.featured_image_url ? ( <div className="portfolio-manager-image-wrapper">
+                        <img src={this.props.blog.featured_image_url} />
+
+                        <div className="image-removal-link">
+                            <a> Remove file </a>
+                            </div>
+                        </div>
+                        ) : (
                     <DropzoneComponent
                     ref = {this.featuredImageRef}
                     config = {this.componentConfig()}
@@ -156,7 +165,8 @@ handleChange(event) {
                         <div className="dz-message">Featured Image
                         </div>
 
-                    </DropzoneComponent>
+                    </DropzoneComponent> 
+                    )}
                 </div>
 
                 <button className = "btn"> Save </button>
