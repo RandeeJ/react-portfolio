@@ -36,9 +36,10 @@ handleUpdateFormSubmission(blog) {
     }
 
     handleEditClick() {
-        console.log("Handle edit clicked")
+        console.log("Handle edit clicked");
+        if (this.props.loggedInStatus === "LOGGED_IN") {
         this.setState({editMode: true})
-    }
+    }}
 
     getBlogItem() {
         axios.get(`https://randeejohnson.devcamp.space/portfolio/portfolio_blogs/${this.state.currentId}`).then(response => {
