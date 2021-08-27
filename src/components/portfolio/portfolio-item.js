@@ -28,6 +28,7 @@ this.setState({portfolioItemClass :""})
 render() {
     const{ id, description, thumb_image_url, logo_url } = this.props.item
     return (
+        <Link to ={`/portfolio/${id}`}>
         <div className="portfolio-item-wrapper"
         onMouseEnter={() => this.handleMouseEnter()}
         onMouseLeave={() => this.handleMouseLeave()}
@@ -50,6 +51,7 @@ style={{
         </div>
     </div>
         </div> 
+        </Link>
     )
 }}
 
