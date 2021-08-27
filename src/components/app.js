@@ -124,7 +124,7 @@ export default class App extends Component {
               />
 
               <Route path="/about-me" component={About} />
-              <Route path="/contact" component={Contact} />
+              <Route path="/contact-me" component={Contact} />
 
               <Route path="/blog" 
               render={props => (
