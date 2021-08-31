@@ -112,7 +112,8 @@ handleModalClose() {
                 return (
                     <div key={blogItem.id} className="admin-blog-wrapper">
                         <BlogItem blogItem={blogItem} />
-                        <a onClick={() => this.handleDeleteClick(blogItem)}><FontAwesomeIcon icon="trash" /></a>
+                        <a onClick={() => this.handleDeleteClick(blogItem)}><FontAwesomeIcon icon="trash" />
+                        </a>
                     </div>
                 )
 
